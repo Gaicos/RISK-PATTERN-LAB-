@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RISK PATTERN LAB - Sistema Operacional v1.0</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Segoe+UI:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="retro-desktop" id="desktopArea">
+
+  <!-- Paisagem Vintage (Colina Verde & Céu Azul do Windows) -->
+  <div class="bliss-wallpaper">
+    <div class="bliss-sky">
+      <div class="cloud cloud-1"></div>
+      <div class="cloud cloud-2"></div>
+      <div class="cloud cloud-3"></div>
+    </div>
+    <div class="bliss-hills">
+      <div class="hill hill-back"></div>
+      <div class="hill hill-front"></div>
+    </div>
+  </div>
+
+  <!-- Retângulo de Seleção Azul da Área de Trabalho (Marquee) -->
+  <div class="desktop-selection-box" id="selectionBox" style="display: none;"></div>
+
+  <!-- Desktop Icons (Atalhos Arrastáveis na Área de Trabalho) -->
+  <div class="desktop-icons-container" id="iconsContainer">
+    <div class="desktop-icon" id="shortcutIntro" style="top: 20px; left: 20px;">
+      <div class="icon-img">📁</div>
+      <span>Início.exe</span>
+    </div>
+    <div class="desktop-icon" id="shortcutGuide" style="top: 110px; left: 20px;">
+      <div class="icon-img">📖</div>
+      <span>Guia.doc</span>
+    </div>
+    <div class="desktop-icon" id="shortcutReport" style="top: 200px; left: 20px;">
+      <div class="icon-img">🖨️</div>
+      <span>Auditoria.prn</span>
+    </div>
+    <div class="desktop-icon" id="shortcutSound" style="top: 290px; left: 20px;">
+      <div class="icon-img" id="desktopSoundIcon">🔊</div>
+      <span>Audio.cfg</span>
+    </div>
+  </div>
+
+  <!-- JANELA PRINCIPAL RETRO (Janela OS Clássica Amigável) -->
+  <div class="retro-window main-window" id="mainWindow">
+    
+    <!-- Barra de Título Clássica (Arrastável) -->
+    <div class="window-titlebar" id="windowTitlebar">
+      <div class="titlebar-left">
+        <span class="window-app-icon">🛡️</span>
+        <span class="window-title">RISK PATTERN LAB - [Investigação de Risco v1.0 | Jun 2025]</span>
+      </div>
+      <div class="titlebar-controls">
+        <button class="win-btn win-btn-help" id="btnWinHelp" title="Consultar Guia Operacional">?</button>
+        <!-- Botão Maximizar / Restaurar (Sem minimizar!) -->
+        <button class="win-btn win-btn-max" id="btnWinMax" title="Maximizar / Restaurar Janela">□</button>
+        <button class="win-btn win-btn-close" id="btnWinClose" title="Reiniciar / Tela Inicial">✕</button>
+      </div>
+    </div>
+
+    <!-- Menubar Antigo (Estilo Windows clássico) -->
+    <div class="window-menubar">
+      <div class="menu-item" id="menuArquivo">Arquivo</div>
+      <div class="menu-item" id="menuGuia">Guia Operacional</div>
+      <div class="menu-item" id="menuCasos">Casos (1 a 8)</div>
+      <div class="menu-item" id="menuAjuda">Ajuda</div>
+      <div class="menu-right-status">
+        <span class="sensitivity-stamp">INTERNAL USE ONLY</span>
+      </div>
+    </div>
+
+    <!-- Corpo da Janela / Conteúdo do Sistema -->
+    <div class="window-content-area" id="windowContentArea">
+
+      <!-- ============================================ -->
+      <!-- TELA 1: INTRODUÇÃO (Apresentação do Laboratório) -->
+      <!-- ============================================ -->
+      <section class="retro-tab-pane active" id="paneIntro">
+        <div class="welcome-box">
+          <div class="banner-retro">
+            <div class="banner-badge">SENSITIVITY: INTERNAL • JUNHO/2025</div>
+            <h1 class="ppt-main-title">RISK PATTERN LAB</h1>
+            <p class="ppt-subtitle">Observe • Conecte • Classifique • Decida</p>
+            <div class="ppt-caption">Categorias de Risco e suas Características • Treinamento baseado no Guia Operacional</div>
+          </div>
+
+          <!-- As 4 Etapas da Dinâmica do PPT -->
+          <div class="retro-group-box">
+            <legend class="group-legend">DINÂMICA: Como funciona o laboratório</legend>
+            <div class="steps-grid">
+              <div class="step-card">
+                <div class="step-number">01</div>
+                <div class="step-label">OBSERVE</div>
+                <div class="step-desc">O que foi identificado?</div>
+              </div>
+              <div class="step-card">
+                <div class="step-number">02</div>
+                <div class="step-label">CONECTE</div>
+                <div class="step-desc">Quais sinais se relacionam?</div>
+              </div>
+              <div class="step-card">
+                <div class="step-number">03</div>
+                <div class="step-label">CLASSIFIQUE</div>
+                <div class="step-desc">Qual hipótese é mais aderente?</div>
+              </div>
+              <div class="step-card">
+                <div class="step-number">04</div>
+                <div class="step-label">DECIDA</div>
+                <div class="step-desc">Que evidência sustenta a decisão?</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Regra Principal em Destaque -->
+          <div class="retro-rule-callout">
+            <div class="rule-icon-box">⚠️</div>
+            <div class="rule-text-content">
+              <strong>REGRA PRINCIPAL:</strong> Não classifique pela primeira evidência.<br>
+              <em>Mudar de hipótese diante de uma nova evidência faz parte de uma boa análise.</em>
+            </div>
+          </div>
+
+          <div class="intro-footer-bar">
+            <button class="retro-btn retro-btn-primary retro-btn-lg" id="btnStartGame">
+              <span>▶ Iniciar Análise de Casos</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- TELA 2: INVESTIGATION CASE (CASOS 1 A 8) -->
+      <!-- ============================================ -->
+      <section class="retro-tab-pane" id="paneInvestigation">
+        
+        <!-- Cabeçalho do Caso -->
+        <div class="case-banner-retro">
+          <div class="case-meta">
+            <span class="case-tag-retro" id="caseBadge">INVESTIGATION CASE • CASO 01</span>
+            <h2 class="case-title-retro" id="caseTitle">O Padrão do Bônus</h2>
+          </div>
+          <div class="case-status-indicator">
+            <span class="retro-badge" id="caseCounterBadge">CASO 1 DE 8</span>
+            <span class="retro-badge score-badge" id="scoreBadge">0 PTS</span>
+          </div>
+        </div>
+
+        <!-- Barra de Progresso Clássica dos Casos -->
+        <div class="retro-progress-container">
+          <div class="retro-progress-track">
+            <div class="retro-progress-fill" id="progressFill" style="width: 12.5%;"></div>
+          </div>
+        </div>
+
+        <!-- Bloco de Evidências em Formato de Fichas/Pastas -->
+        <div class="retro-group-box evidences-box">
+          <legend class="group-legend">CONJUNTO DE SINAIS & EVIDÊNCIAS COLETADAS</legend>
+
+          <!-- Evidência 1 -->
+          <div class="evidence-row revealed" id="evRow1">
+            <div class="evidence-badge-tag">EVIDÊNCIA 01</div>
+            <div class="evidence-body">
+              <span class="evidence-text" id="textEv1">Carregando...</span>
+            </div>
+            <div class="evidence-status-stamp">✓ IDENTIFICADA</div>
+          </div>
+
+          <!-- Evidência 2 -->
+          <div class="evidence-row locked" id="evRow2">
+            <div class="evidence-badge-tag">EVIDÊNCIA 02</div>
+            <div class="evidence-body">
+              <span class="evidence-text hidden" id="textEv2"></span>
+              <div class="locked-placeholder" id="lockPlaceholder2">
+                <span>[ Sinal retido para análise ] Conecte a primeira evidência antes de aprofundar.</span>
+                <button class="retro-btn retro-btn-sm" id="btnRevealEv2">🔍 Revelar Evidência 02</button>
+              </div>
+            </div>
+            <div class="evidence-status-stamp" id="stampEv2">🔒 PENDENTE</div>
+          </div>
+
+          <!-- Evidência 3 -->
+          <div class="evidence-row locked" id="evRow3">
+            <div class="evidence-badge-tag">EVIDÊNCIA 03</div>
+            <div class="evidence-body">
+              <span class="evidence-text hidden" id="textEv3"></span>
+              <div class="locked-placeholder" id="lockPlaceholder3">
+                <span>[ Sinal conclusivo ] Cruze as evidências anteriores para desbloquear.</span>
+                <button class="retro-btn retro-btn-sm" id="btnRevealEv3" disabled>🔍 Revelar Evidência 03</button>
+              </div>
+            </div>
+            <div class="evidence-status-stamp" id="stampEv3">🔒 PENDENTE</div>
+          </div>
+        </div>
+
+        <!-- Bloco de Classificação Final (Opções A, B, C, D) -->
+        <div class="retro-group-box classification-box">
+          <legend class="group-legend">CLASSIFICAÇÃO FINAL: Qual hipótese é mais aderente?</legend>
+          
+          <div class="options-container" id="optionsGrid">
+            <!-- Opções inseridas dinamicamente -->
+          </div>
+
+          <!-- Pergunta Reflexiva Determinante (Direto do PPT) -->
+          <div class="retro-discussion-box" id="discussionBox" style="display: none;">
+            <div class="discussion-label">
+              💬 <strong>Discussão Operacional:</strong> Qual evidência foi determinante para sua decisão?
+            </div>
+            <div class="discussion-chips">
+              <button class="chip-btn" data-ev="1">Evidência 01</button>
+              <button class="chip-btn" data-ev="2">Evidência 02</button>
+              <button class="chip-btn" data-ev="3">Evidência 03</button>
+              <button class="chip-btn" data-ev="all">O conjunto das evidências</button>
+            </div>
+          </div>
+
+          <div class="decision-action-bar">
+            <button class="retro-btn retro-btn-primary retro-btn-lg" id="btnSubmitDecision" disabled>
+              <span>Confirmar Classificação</span>
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ============================================ -->
+      <!-- TELA 3: DEBRIEFING & CONCLUSÃO -->
+      <!-- ============================================ -->
+      <section class="retro-tab-pane" id="paneDebrief">
+        <div class="debrief-box">
+          
+          <div class="banner-retro debrief-banner">
+            <div class="banner-badge">SENSITIVITY: INTERNAL • DEBRIEFING</div>
+            <h2 class="ppt-main-title">DEBRIEF: O que aprendemos?</h2>
+            <div class="slogan-retro">SINAL &nbsp;≠&nbsp; CONCLUSÃO</div>
+          </div>
+
+          <!-- Resumo de Desempenho do Analista -->
+          <div class="retro-scorecard">
+            <div class="score-item">
+              <span class="sc-label">Casos Corretos:</span>
+              <span class="sc-val" id="finalCorrectVal">0 / 8</span>
+            </div>
+            <div class="score-item">
+              <span class="sc-label">Pontuação Total:</span>
+              <span class="sc-val" id="finalPointsVal">0 pts</span>
+            </div>
+            <div class="score-item">
+              <span class="sc-label">Classificação:</span>
+              <span class="sc-val text-blue" id="finalRankVal">Analista de Risco</span>
+            </div>
+          </div>
+
+          <!-- Os 3 Princípios de Debrief do PPT -->
+          <div class="retro-group-box">
+            <legend class="group-legend">DIRETRIZES FUNDAMENTAIS DO GUIA</legend>
+            <div class="debrief-grid">
+              <div class="debrief-card">
+                <div class="debrief-card-header">01 | OBSERVE</div>
+                <div class="debrief-card-body">Separe fatos de suposições.</div>
+              </div>
+              <div class="debrief-card">
+                <div class="debrief-card-header">02 | CONECTE</div>
+                <div class="debrief-card-body">Busque padrões no conjunto das evidências.</div>
+              </div>
+              <div class="debrief-card">
+                <div class="debrief-card-header">03 | REAVALIE</div>
+                <div class="debrief-card-body">Uma nova evidência pode mudar a hipótese.</div>
+              </div>
+            </div>
+            <div class="debrief-quote">
+              “A boa análise não procura uma única red flag. Ela constrói uma decisão sustentada pelas evidências disponíveis.”
+            </div>
+          </div>
+
+          <!-- Resumo dos 8 casos -->
+          <div class="retro-group-box">
+            <legend class="group-legend">HISTÓRICO DA RODADA</legend>
+            <div class="cases-summary-list" id="casesSummaryList">
+              <!-- Gerado via JS -->
+            </div>
+          </div>
+
+          <div class="debrief-footer">
+            <button class="retro-btn" id="btnOpenReport">
+              <span>🖨️ Relatório de Auditoria</span>
+            </button>
+            <button class="retro-btn retro-btn-primary" id="btnRestartGame">
+              <span>🔄 Reiniciar Laboratório</span>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Barra de Status Inferior da Janela (Window Statusbar) -->
+    <div class="window-statusbar">
+      <div class="status-panel">Pronto</div>
+      <div class="status-panel" id="statusCaseInfo">Caso 1 de 8</div>
+      <div class="status-panel">Modo: Treinamento Operacional</div>
+      <div class="status-panel status-clock" id="statusClock">12:00</div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- CAIXA DE DIÁLOGO RETRO: GABARITO & VALIDAÇÃO -->
+  <!-- ============================================ -->
+  <div class="dialog-backdrop" id="dialogBackdrop" style="display: none;">
+    <div class="retro-dialog">
+      <div class="dialog-titlebar" id="dialogTitlebar">
+        <span class="dialog-title" id="dialogTitle">Validação pelo Guia Operacional</span>
+        <button class="win-btn win-btn-close" id="btnDialogClose">✕</button>
+      </div>
+      <div class="dialog-body">
+        <div class="dialog-header-banner" id="dialogResultBanner">
+          <span class="result-icon" id="dialogResultIcon">✓</span>
+          <div class="result-texts">
+            <div class="result-status" id="dialogResultStatus">GABARITO CORRETO</div>
+            <h3 class="result-answer" id="dialogCorrectAnswer">✓ B) ABUSO DE BÔNUS</h3>
+          </div>
+        </div>
+
+        <div class="dialog-section-box">
+          <div class="sec-label">POR QUE ESSA É A MELHOR CLASSIFICAÇÃO?</div>
+          <p class="sec-content" id="dialogReasoningText">...</p>
+        </div>
+
+        <div class="dialog-section-box guide-quote-box">
+          <div class="sec-label">📖 O QUE DIZ O GUIA</div>
+          <p class="sec-content" id="dialogGuideQuote">...</p>
+        </div>
+
+        <div class="dialog-discussion-feedback" id="dialogDiscussionFeedback">
+          <!-- Reflexão sobre a evidência determinante -->
+        </div>
+      </div>
+      <div class="dialog-footer">
+        <button class="retro-btn retro-btn-primary" id="btnDialogNext">
+          <span id="btnDialogNextText">Avançar para o Próximo Caso ➔</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- CAIXA DE DIÁLOGO: GUIA / GLOSSÁRIO OPERACIONAL -->
+  <!-- ============================================ -->
+  <div class="dialog-backdrop" id="glossaryBackdrop" style="display: none;">
+    <div class="retro-dialog glossary-window">
+      <div class="dialog-titlebar">
+        <span class="dialog-title">Guia Operacional - Categorias de Risco e suas Características</span>
+        <button class="win-btn win-btn-close" id="btnCloseGlossary">✕</button>
+      </div>
+      <div class="dialog-body glossary-body-scroll">
+        <div class="glossary-item">
+          <strong>Abuso de Bônus:</strong> Criação de várias contas (multi-conta) para reivindicar repetidamente bônus destinados a novos jogadores, ou estratégias de cobertura de resultados (vermelho/preto) com risco reduzido para avançar requisitos de rollover promocional.
+        </div>
+        <div class="glossary-item">
+          <strong>Invasão de Conta (Account Takeover):</strong> Tomada de controle não autorizada de uma conta legítima já existente por meio de credenciais de acesso roubadas, descobertas ou vazadas.
+        </div>
+        <div class="glossary-item">
+          <strong>Lavagem de Dinheiro (AML):</strong> Movimentação com depósitos relevantes, pouca atividade de jogo em padrões de baixo risco e saque rápido logo após pouca atividade, além de fontes de financiamento incomuns e contas interligadas.
+        </div>
+        <div class="glossary-item">
+          <strong>ARB (Arbitragem):</strong> Apostar nos possíveis resultados de um evento em diferentes casas/operadores para buscar lucro independentemente do desfecho esportivo, aproveitando discrepâncias nas odds.
+        </div>
+        <div class="glossary-item">
+          <strong>Roubo de Identidade:</strong> Utilização de informações pessoais e documentos pertencentes a outra pessoa para abrir e fraudar novas contas na plataforma.
+        </div>
+        <div class="glossary-item">
+          <strong>Fraude de Pagamento:</strong> Uso de métodos de pagamento roubados/não autorizados, resultando em contestações e estornos (chargebacks) por não reconhecimento pelo titular legítimo.
+        </div>
+      </div>
+      <div class="dialog-footer">
+        <button class="retro-btn" id="btnOkGlossary">Fechar Guia</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- MODAL: RELATÓRIO DE AUDITORIA RETRÔ IMPRESSO -->
+  <!-- ============================================ -->
+  <div class="dialog-backdrop" id="reportBackdrop" style="display: none;">
+    <div class="retro-dialog report-dialog">
+      <div class="dialog-titlebar">
+        <span class="dialog-title">Visualizador de Impressão - Relatório de Auditoria</span>
+        <button class="win-btn win-btn-close" id="btnCloseReport">✕</button>
+      </div>
+      <div class="dialog-body report-paper" id="reportPrintArea">
+        <div class="report-header">
+          <div class="rep-title">RELATÓRIO DE CAPACITAÇÃO OPERACIONAL</div>
+          <div class="rep-sub">SISTEMA RISK PATTERN LAB • AUDITORIA INTERNA</div>
+          <div class="rep-line">========================================================</div>
+        </div>
+        <div class="report-meta-grid">
+          <div>DATA: <span id="repDate">06/11/2026</span></div>
+          <div>HORA: <span id="repHour">18:00</span></div>
+          <div>VERSÃO DO GUIA: v1.0 (Jun/2025)</div>
+          <div>STATUS: <strong id="repStatus">CONCLUÍDO</strong></div>
+        </div>
+        <div class="rep-line">--------------------------------------------------------</div>
+        <div class="report-scores">
+          <div>CASOS ANALISADOS: <span id="repCases">8 / 8</span></div>
+          <div>SCORE TOTAL: <span id="repScore">0 PTS</span></div>
+          <div>CLASSIFICAÇÃO FINAL: <strong id="repRank">ANALISTA DE RISCO</strong></div>
+        </div>
+        <div class="rep-line">--------------------------------------------------------</div>
+        <div class="report-principle">
+          <strong>PRINCÍPIO NORMATIVO:</strong><br>
+          "A boa análise não procura uma única red flag. Ela constrói uma decisão sustentada pelas evidências disponíveis. SINAL != CONCLUSÃO."
+        </div>
+        <div class="rep-line">========================================================</div>
+        <div class="report-signature">
+          <span>DEPARTAMENTO DE RISCO, COMPLIANCE & ANTIFRAUDE</span>
+          <small>[ DOCUMENTO GERADO ELETRONICAMENTE ]</small>
+        </div>
+      </div>
+      <div class="dialog-footer">
+        <button class="retro-btn retro-btn-primary" id="btnPrintReport">🖨️ Imprimir / Salvar PDF</button>
+        <button class="retro-btn" id="btnDismissReport">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BARRA DE TAREFAS RETRO CLÁSSICA (Bottom Taskbar) -->
+  <footer class="retro-taskbar" id="taskbar">
+    <button class="start-btn" id="taskbarStartBtn">
+      <span class="start-logo">🛡️</span>
+      <span class="start-text">Iniciar</span>
+    </button>
+    <div class="taskbar-divider"></div>
+    <div class="taskbar-tasks">
+      <div class="task-tab active" id="taskTabMain">
+        <span>🛡️ Risk Pattern Lab v1.0</span>
+      </div>
+    </div>
+    <div class="taskbar-tray">
+      <span class="tray-icon" id="traySoundBtn" title="Som">🔊</span>
+      <span class="tray-clock" id="taskbarClock">18:00</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
